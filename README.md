@@ -7,7 +7,7 @@ here changes UCS configuration.
 
 | Path | Language | What it does | Effect |
 |---|---|---|---|
-| `ansible/ucs-gather-inventory.yml` | Ansible (`cisco.ucs` collection) | Gathers UCS inventory from a UCS Manager | read-only |
+| `ansible/ucs-gather-inventory.yml` | Ansible (`cisco.ucs` collection) | Gathers UCS blade and service-profile inventory from a UCS Manager | intended read-only, **but** it uses `ucs_managed_objects` with `state: present` and empty properties (a configuration module, not a query module). Review before running against production; the PowerShell script is the strictly read-only option. |
 | `powershell/get-ucs-inventory.ps1` | PowerShell (Cisco PowerTool, `Cisco.UCSManager`) | Lists blades and their service-profile associations | read-only |
 | `docs/legacy-README-*.md` | — | Original per-repository READMEs (prerequisites, usage examples) | — |
 
